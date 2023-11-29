@@ -44,7 +44,7 @@ main {
             gap: 20px;
 
             &__terms {
-                font-size: 80%;
+                font-size: 12px;
                 text-align: center;
 
                 a {
@@ -97,6 +97,7 @@ main {
             border-radius: 10px;
             font-size: 100%;
             height: 56px;
+            max-width: 232px;
             &:not(:placeholder-shown)+ label {
                 background-color: white;
                 left: 10px;
@@ -110,6 +111,9 @@ main {
             &:focus+.input-group__label {
                 color: var(--main-color);
             }
+        }
+        textarea {
+            max-width:100%;
         }
     }
 

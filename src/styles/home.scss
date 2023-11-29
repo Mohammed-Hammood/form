@@ -1,0 +1,139 @@
+main {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    align-items: center;
+    min-height: 100vmin;
+
+    textarea {
+        resize: none;
+    }
+
+    .container {
+        background-color: white;
+        width: 100%;
+        min-height: 559px;
+        max-width: 598px;
+    }
+
+    .header {
+        text-align: center;
+        padding: 5% 0;
+        font-size: 180%;
+    }
+
+
+    .form__feedback {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 25px;
+        padding: 10px 50px;
+
+        .has-error {
+            color: #f57f6c;
+            input {
+                border-color: #f57f6c;
+            }
+        }
+
+        &__submit {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            &__terms {
+                font-size: 80%;
+                text-align: center;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+
+    .input-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 5%;
+
+
+        &__error {
+            position: absolute;
+            bottom: -20px;
+            font-size: 70%;
+            color: #f57f6c;
+            width: max-content;
+        }
+
+        &__label {
+            cursor: pointer;
+            position: absolute;
+            margin:  20px 30px;
+            padding: 0 2px;
+            z-index: 1;
+            background:transparent;
+            cursor: text;
+            user-select: none;
+        }
+        &:focus-within {
+            .input-group__label {
+                background-color: white;
+                left: 10px;
+                top: -12px;
+                margin:0;
+               
+            }
+        }
+        &__input {
+            outline: none;
+            padding: 0.8em 1em;
+            border: solid 2px #e5e6e7;
+            border-radius: 10px;
+            font-size: 100%;
+            height: 56px;
+            &:not(:placeholder-shown)+ label {
+                background-color: white;
+                left: 10px;
+                top: -12px;
+                margin:0;
+            }
+            &:focus {
+                border-color: #1BB55C;
+            }
+
+            &:focus+.input-group__label {
+                color: var(--main-color);
+            }
+        }
+    }
+
+    .input-group--textarea {
+        grid-column: span 2;
+        textarea {
+            height: 120px;
+        }
+    }
+
+    .form__feedback-submit--btn {
+        background-color: #1BB55C;
+        color: white;
+        width: 200px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        font-size: 100%;
+        cursor: pointer;
+    }
+    #submitStatus {
+        font-size: 18px;
+        font-weight: 500;
+        padding:1rem;
+    }
+
+}

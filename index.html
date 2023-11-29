@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReFwjahkaz3Ig-Xwn_-0pWPZrcnq9Z2gB-bg&usqp=CAU" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Обратная форма</title>
+    <script type="module" src="./main.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h2 class="header">Обратная форма</h2>
+            <form class="form__feedback" id="form-feedback" onsubmit="return false">
+                <div class="input-group">
+                    <input required type="text" id="fullName" class="input-group__input" placeholder=" " />
+                    <label class="input-group__label" for="fullName">ФИО</label>
+                    <span class="input-group__error"></span>
+                </div>
+                <div class="input-group">
+                    <input required type="text" id="phone" class="input-group__input" placeholder=" " />
+                    <label class="input-group__label" for="phone">Телефон</label>
+                    <span class="input-group__error"></span>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" class="input-group__input" placeholder=" " />
+                    <label class="input-group__label" for="email">E-mail</label>
+                    <span class="input-group__error"></span>
+                </div>
+                <div class="input-group input-group--textarea">
+                    <textarea id="message" class="input-group__input" rows="10" placeholder=" "></textarea>
+                    <label class="input-group__label" for="message">Сообщение</label>
+                    <span class="input-group__error"></span>
+                </div>
+
+                <div class="form__feedback__submit">
+                    <p class="form__feedback__submit__terms">
+                        <span>Отправляя форму, Вы соглашаетесь на</span>
+                        <a href="/">обработку персональных данных</a>
+                    </p>
+                    <button type="submit" class="form__feedback-submit--btn">
+                        Отправить
+                    </button>
+                </div>
+            </form>
+            <p class="form__feedback__submit__terms" id="submitStatus"></p>
+        </div>
+    </main>
+</body>
+
+</html>

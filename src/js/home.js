@@ -67,6 +67,6 @@ function submitHandler() {
     }
 }
 
-Validation(email, 'email', 'Э. почта должно быть: name@example.com');
-Validation(phone, 'phone', 'номер должно быть: +7 (423) 123-45-67');
+Validation(email, 'email', 'Э. почта должна быть: name@example.com');
+Validation(phone, 'phone', 'номер должен быть: +7 (423) 123-45-67');
 form.addEventListener('submit', submitHandler);

@@ -5,42 +5,7 @@ const phone = document.getElementById('phone');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
 const submitStatus = document.getElementById('submitStatus');
-
-
-document.getElementById('form-feedback').addEventListener('submit', () => {
-    if (!validateCallbacks.some(item => !item())) {
-        const data = {
-            name: fullName.value,
-            phone: phone.value,
-            email: email.value,
-            message: message.value,
-        };
-
-
-        document.getElementById("form-feedback").style.display = "none";
-        submitStatus.innerHTML = 'Загрузка';
-
-        function sendRequest() {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function () {
-                const res = JSON.parse(this.response).ok;
-                if (res) {
-                    submitStatus.innerHTML = 'Успешно';
-                    document.getElementById("form-feedback").style.display = "none";
-
-                } else {
-                    document.getElementById("form-feedback").style.display = "block";
-                    submitStatus.innerHTML = 'Ошибки';
-                }
-            }
-            xhttp.open("POST", endpoint);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send(JSON.stringify(data));
-        }
-        sendRequest();
-
-    }
-});
+const form = document.getElementById('form-feedback');
 
 
 function Validation(element, required_regex, errorMessage = '') {
@@ -69,5 +34,39 @@ function Validation(element, required_regex, errorMessage = '') {
     element.addEventListener('change', validateCallbacks.at(-1));
 }
 
+function submitHandler() {
+    if (!validateCallbacks.some(item => !item())) {
+        const data = {
+            name: fullName.value,
+            phone: phone.value,
+            email: email.value,
+            message: message.value,
+        };
+
+        document.getElementById("form-feedback").style.display = "none";
+        submitStatus.innerHTML = 'Загрузка';
+
+        function sendRequest() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                const res = JSON.parse(this.response).ok;
+                if (res) {
+                    submitStatus.innerHTML = 'Успешно';
+                    document.getElementById("form-feedback").style.display = "none";
+
+                } else {
+                    document.getElementById("form-feedback").style.display = "block";
+                    submitStatus.innerHTML = 'Ошибки';
+                }
+            }
+            xhttp.open("POST", endpoint);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(JSON.stringify(data));
+        }
+        sendRequest();
+    }
+}
+
 Validation(email, 'email', 'Э. почта должно быть: name@example.com');
 Validation(phone, 'phone', 'номер должно быть: +7 (423) 123-45-67');
+form.addEventListener('submit', submitHandler);
